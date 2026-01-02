@@ -1,0 +1,94 @@
+---           
+layout: post
+title: Install Joomla Menggunakan XAMPP di Ubuntu
+date: 2012-02-15 10:38:52 UTC
+updated: 2012-02-15 10:38:52 UTC
+comments: false
+categories: linux
+---
+Pada tutorial kali ini saya ingin menjelaskan tentang cara <strong>menginstal Joomla di Ubuntu dengan menggunakan XAMPP</strong>. <em>XAMPP</em> merupakan sebuah program <em>web server</em> yang sudah sangat lengkap karena dalam sekali instal kita bisa mendapatkan sebuah <strong>Apache</strong> Server, <strong>MySQL</strong> Database, dan tentu saja <strong>PHP</strong>. Dengan adanya <em>XAMPP</em> kita tidak perlu lagi repot-repot menginstal komponen tersebut satu-persatu. Karena menurut pengalaman teman saya jika ingin menginstal satu-persatu maka akan sangat menyulitkan saat mengkonfigurasi komponen-komponen tersebut. Baiklah, berikut ini akan saya jelaskan tutorialnya secara mendetail :<br />
+<br />
+<strong>Langkah 1</strong><br />
+<em>Download XAMPP dan Joomla.</em><br />
+Download file yang diperlukan terlebih dahulu yakni <strong><a href="http://www.apachefriends.org/en/xampp-linux.html" target="_blank">XAMPP</a></strong> dan<strong> <a href="http://www.joomla.org/" target="_blank">Joomla</a></strong>. Pastikan Anda mendownload versi stabil yang terbaru.<br />
+<a name='more'></a><br />
+<br />
+<strong>Langkah 2</strong><br />
+<em>Menginstal XAMPP.</em><br />
+Setelah selesai mendownload file yang diperlukan, sekarang kita instal <em>XAMPP </em>terlebih dahulu. Pastikan file hasil download tadi satu folder dengan direktori kerja Anda.<br />
+<ol><li>Misalkan Anda simpan file tadi di <em>Desktop</em>, maka jalankan perintah berikut di terminal. (<em>login</em> terlebih dahulu sebagai <em>root</em>) :<br />
+<span style="font-family: 'Courier New';"># cd Desktop</span></li>
+<li>Ekstrak XAMPP ke direktori /opt :<br />
+<span style="font-family: 'Courier New';"># tar xvfz xampp-linux-1.7.2.tar.gz -C /opt</span></li>
+<li>Kemudian jalankan XAMPP dengan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># /opt/lampp/lampp start</span></li>
+<li>Test apakah XAMPP sudah dapat bekerja.</li>
+Buka browser Mozilla Firefox Anda, dan ketikkan : <span style="font-family: 'Courier New';">http://localhost</span>
+<li>Untuk menghentikan XAMPP gunakan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># /opt/lampp/lampp stop</span></li>
+</ol><br />
+<strong>Langkah 3</strong><br />
+<em>Mengesktrak Joomla.</em><br />
+<ol><li>Buat direktori Joomla terlebih dahulu di /opt/lampp/htdocs :<br />
+<span style="font-family: 'Courier New';"># mkdir /opt/lampp/htdocs/joomla</span></li>
+<li>Ektrak Joomla ke di rektori /opt/lampp/htdocs/joomla :<br />
+<span style="font-family: 'Courier New';"># unzip Joomla_1.5.15-Stable-Full_Package.zip -d /opt/lampp/htdocs/joomla</span></li>
+<li>Untuk mempermudah proses penginstalan Joomla, maka disarankan untuk mengganti setting <em>permission</em> folder /opt/lampp dengan cara memasukkan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># chmod -R 775 /opt/lampp</span><br />
+</li>
+<li>Untuk menghindari pesan kesalahan saat instalasi Joomla, Anda juga harus memodifikasi file '<em>php.ini'</em> di direktori /opt/lampp/etc.<br />
+<span style="font-family: 'Courier New';"># gedit /opt/lampp/etc/php.ini</span><br />
+Kemudian tekan Ctrl+F dan cari kata '<em>display_errors = on</em>' ganti dengan '<em>display_errors = Off</em>'.<br />
+<img alt="php.ini" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot.png?w=500" /><br />
+Setelah itu <em>restart</em> XAMPP Anda.</li>
+</ol><br />
+<strong>Langkah 4</strong><br />
+<em>Menginstal Joomla.</em><br />
+<ol><li>Sekarang saatnya instalasi Joomla di komputer Anda. Buka browser Mozilla Firefox Anda, kemudian ketikkan :<br />
+<span style="font-family: 'Courier New';">http://localhost/joomla/</span></li>
+<li>Pilih bahasa kemudian klik <em>Next</em>.<br />
+<img alt="bahasa" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox.png?w=500" /></li>
+<li>Kemudian Joomla mengecek semua komponen yang dibutuhkan sudah tersedia atau belum (<em>Pre-Installation Check</em>). Lalu klik <em>Next</em>.<br />
+<img alt="cek" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-1.png?w=500" /></li>
+<li>Klik <em>Next</em> lagi saat Joomla menampilkan <em>Lisensi</em> di layar.<br />
+<img alt="lisensi" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-2.png?w=500" /></li>
+<li>Pada tahap <em>Database Configuration</em>, masukkan beberapa informasi berikut :<br />
+<em>Database Type: mysql (default)<br />
+Host Name: localhost (default)<br />
+User Name: root (default)<br />
+Password:(dikosongkan saja)<br />
+Database Name: joomla (nama database)</em><br />
+<img alt="database" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-3.png?w=500" /></li>
+<li>Pada tahap  <em>FTP Configuration</em> klik <em>Next</em> saja jika Anda tidak menggunakan FTP Server.<br />
+<img alt="FTP" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-4.png?w=500" /></li>
+<li>Pada tahap <em>Main Configuration</em>, masukkan beberapa informasi berikut :<br />
+<em>Put your Site Name    : 'BolangUNIX' (masukkan nama situs yang diinginkan).<br />
+Enter Your Email      : 'afriandi_xxx@yahoo.com' (masukkan alamat email Anda).<br />
+Enter Admin Password    : ******* (buat password admin Anda).<br />
+Confirm Admin Password : *******</em><br />
+Kemudian jangan lupa menginstal <em>Default Sample Data</em> dengan mengklik button '<em>Install Sample Data</em>'.<br />
+Klik <em>Next</em>.<br />
+<img alt="informasi" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-8.png?w=500" /></li>
+<li>Di layar diberitahukan bahwa Joomla tidak dapat memodifikasi file '<em>configuration.php</em>' sehingga kita harus memodifikasinya sendiri.<br />
+Copy semua kode di dalam box, kemudian masukkan perintah berikut di terminal :<br />
+<span style="font-family: 'Courier New';"># gedit /opt/lampp/htdocs/joomla/configuration.php</span><br />
+Lalu paste-kan semua kode tadi di file tersebut, lalu klik <em>Save</em>.<br />
+<img alt="configuration" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-configuration-php28-opt-lampp-htdocs-joomla29-gedit.png?w=500" /><br />
+Kembali ke layar instalasi Joomla, lalu klik <em>Admin</em>.<br />
+<img alt="admin" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-7.png?w=500" /></li>
+<li>Di layar diberitahukan lagi bahwa kita harus menghapus folder <em>installation</em> yang terdapat di di<br />
+rektori /opt/lampp/htdocs/joomla, gunakan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># rm -rf /opt/lampp/htdocs/joomla/installation/</span><br />
+<img alt="instalation" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-joomla21webinstaller-mozillafirefox-5.png?w=500" /></li>
+<li>Kembali ke layar instalasi Joomla, kemudian klik link ‘<em>Click here when the directory has been removed</em>‘. Anda telah berhasil menginstal Joomla.</li>
+</ol><br />
+<strong>Langkah 5</strong><br />
+<em>Menggunakan Joomla.</em><br />
+<ol><li>Sekarang kita sudah bisa mulai membuat website menggunakan Joomla. Buka Mozilla Firefox Anda lalu ketikkan:<br />
+'<span style="font-family: 'Courier New';">http://localhost/joomla/administrator/</span>'. <br />
+Kemudian masukkan <em>username</em> dan <em>password</em> Anda, lalu klik <em>login</em>.<br />
+<img alt="administrator" border="0" src="http://bolang123.files.wordpress.com/2010/02/screenshot-bolangunix-administration-mozillafirefox.png?w=500" /></li>
+</ol><br />
+<br />
+Sekian, mari membuat website menggunakan Joomla :D.<br />
+Baca juga: tutorial cara <a href="http://www.afriandi.web.id/2010/07/install-drupal-menggunakan-xampp-di.html">install Drupal menggunakan XAMPP di Ubuntu</a>.

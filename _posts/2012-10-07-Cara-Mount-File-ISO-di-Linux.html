@@ -1,0 +1,38 @@
+---           
+layout: post
+title: Cara Mount File ISO di Linux
+date: 2012-10-07 03:16:18 UTC
+updated: 2012-10-07 03:16:18 UTC
+comments: false
+categories: linux
+---
+Pada tutorial kali ini saya ingin menjelaskan tentang <b>cara mount file ISO di Linux</b>. Di dalam sistem operasi Windows, untuk me-<i>mount</i> file ISO kita memerlukan sebuah aplikasi khusus seperti <b>Alcohol</b> atau <b>Daemon Tools</b>. Tidak seperti di Windows, di Linux kita tidak memerlukan aplikasi khusus untuk me-<i>mount</i> sebuah file ISO. Kita hanya perlu menuliskan beberapa <i>command</i> di <i>Terminal</i> untuk melakukan pekerjaan ini. Berikut ini penjelasannya :<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/01/cd-rom.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="173" src="http://bolang123.files.wordpress.com/2010/01/cd-rom.jpg?w=300" width="200" /></a></div>
+<ol>
+<li>Buat terlebih dahulu sebuah direktori tempat di mana kita akan me-mount file ISO tersebut. Misalnya, saya ingin membuat folder "iso" di direktori <i>/media</i>.<br /><br /><blockquote>
+<span style="font-family: Courier New;">$ sudo mkdir /media/iso</span><br />
+<br /></blockquote>
+</li>
+<li>Setelah itu <i>mount</i> file ISO yang Anda inginkan ke direktori yang telah dibuat sebelumnya.<br /><br /><blockquote>
+$ sudo mount -o loop /media/DATA_2/LinuxMint-8.iso<b> </b>/media/iso</blockquote>
+<i>/media/DATA_2/</i><b> </b>adalah direktori di mana letak file ISO Anda, dan <b>LinuxMint-8.iso </b>adalah nama file ISO yang terletak di direktori tersebut.  <br /><br /></li>
+<li>Untuk meng-<i>unmount</i> file ISO tersebut jalankan perintah berikut.<br /><br /><blockquote>
+$ sudo umount /media/iso</blockquote>
+</li>
+</ol>
+<br />
+Atau Anda juga bisa menggunakan aplikasi "<b>gmountiso</b>" sebagai <b>GUI</b> dari <i>command</i> di atas.<br />
+<ol>
+<li>Pastikan komputer Anda terkoneksi dengan internet. Buka <i>Terminal</i> dan jalankan perintah berikut :<br /><br /><blockquote>
+$ sudo apt-get install gmountiso</blockquote>
+</li>
+<li>Kemudian klik Menu <i>System</i> &gt; <i>Administration</i> &gt; <i>Gmount-iso</i>, maka muncul jendela seperti ini.<br /><br /><div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/01/screenshot-gmount-iso-1.png?w=300" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://bolang123.files.wordpress.com/2010/01/screenshot-gmount-iso-1.png?w=300" /></a></div>
+<br /></li>
+<li>Pada kolom <i>Image File</i> klik <i>Open</i>, lalu cari di mana tempat file ISO Anda. Pada kolom <i>Mount Point</i> klik <i>Open</i>, lalu tentukan direktori tempat file ISO tersebut akan di-mount. Terakhir klik <i>Mount.</i><br /><br /><div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/01/screenshot-gmount-iso.png?w=300" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://bolang123.files.wordpress.com/2010/01/screenshot-gmount-iso.png?w=300" /></a></div>
+</li>
+</ol>
+Sekian, semoga bermanfaat :D.

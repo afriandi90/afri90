@@ -1,0 +1,45 @@
+---           
+layout: post
+title: Rekam Aktivitas Desktop Anda Dengan RecordMyDesktop
+date: 2012-10-07 03:15:52 UTC
+updated: 2012-10-07 03:15:52 UTC
+comments: false
+categories: linux
+---
+Pada kesempatan kali ini saya ingin membahas cara untuk <b>merekam</b> seluruh <b>aktivitas</b> yang sedang terjadi di <b>desktop Anda</b> menggunakan sebuah aplikasi yang bernama <b>recordMyDesktop</b>. Cara penggunaan aplikasi ini cukup mudah karena aplikasi ini sudah menyediakan penggunaan secara GUI-nya menggunakan <i>gtk</i>. Output hasil rekamannya berupa video, cocok untuk Anda yang misalnya ingin pamer Desktop 3D Compiz Fusion dan meng<i>upload</i>-nya ke <i>Youtube</i>.<br />
+Pertama install terlebih dahulu aplikasi <i>recordMyDesktop</i> beserta GUI-nya.<br />
+Seperti biasa, pastikan komputer Anda tersambung dengan internet, lalu buka <i>Terminal</i> dan masukkan perintah berikut :<br />
+<span style="font-family: Courier New;">$ sudo apt-get install recordmydesktop gtk-recordmydesktop</span><br />
+<br />
+Untuk membuka aplikasi ini klik menu <i>Applications &gt; Sound &amp; Video &gt; gtk-recordMyDesktop</i>. Maka muncul jendela seperti ini.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="156" src="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop.png?w=300" width="400" /></a></div>
+<br />
+Kemudian klik tombol<b> Advance</b> untuk settingan lebih lanjut.<br />
+Di tab <b>Files</b> kita dapat menyetting di mana hasil video akan di letakkan. Di sini saya meletakkan video-nya di direktori <i>/home/afriandi</i>.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop20advanced.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400" src="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop20advanced.png?w=156" width="207" /></a></div>
+<br />
+Di tab <b>Performance</b> kita dapat menyetting kualitas video yang akan dihasilkan. Di sini saya menyetting <i>Frame Per Second</i> (FPS)-nya sebesar 20. Semakin kecil <i>FPS</i>-nya video yang dihasilkan semakin terlihat patah-patah. Maksimal FPS untuk standar video biasanya 30 <i>FPS</i>.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop20advanced-1.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400" src="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop20advanced-1.png?w=156" width="207" /></a></div>
+<br />
+Di tab <b>Sound</b> kita dapat menyetting kualitas <i>audio</i> yang akan dihasilkan.<br />
+Untuk settingan yang lain silahkan menyesuaikan sendiri.<br />
+<br />
+Untuk memulai merekam video cukup klik tombol <b>Record</b>. Untuk mengakhirinya cukup klik icon seperti kotak di panel Anda. Setelah itu video akan di<i>encode</i> dan hasilnya akan berformat <b>*.ogv</b>.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop-encoder.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="172" src="http://bolang123.files.wordpress.com/2010/02/screenshot-recordmydesktop-encoder.png?w=300" width="320" /></a></div>
+<br />
+Agar bisa langsung di<i>upload</i> ke youtube, Anda bisa meng-<i>convert</i> video ini ke format yang lebih populer misalnya *.avi atau *.flv menggunakan aplikasi <b>ffmpeg</b>.<br />
+Pertama install terlebih dahulu <b>ffmpeg</b> ke komputer Anda :<br />
+<span style="font-family: Courier New;">$ sudo apt-get install ffmpeg</span><br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/ffmpeg.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="179" src="http://bolang123.files.wordpress.com/2010/02/ffmpeg.jpg?w=300" width="320" /></a></div>
+<br />
+Kemudian convert video tersebut ke format yang Anda inginkan, di sini videonya ingin saya convert ke <b>*.avi</b>.<br />
+<span style="font-family: Courier New;">$ sudo ffmpeg -i /home/afriandi/out.ogv -y -sameq /home/afriandi/out.avi</span><br />
+<br />
+Tunggu beberapa saat, maka video akan selesai di-<i>convert</i>, Anda bisa meng<i>upload</i> video tersebut ke Youtube atau men-<i>share</i> video tersebut kepada teman-teman Anda.<br />
+<br />
+Sekian, semoga bermanfaat.

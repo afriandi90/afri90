@@ -1,0 +1,56 @@
+---           
+layout: post
+title: Cara Upgrade Mozilla Firefox di Ubuntu
+date: 2012-10-07 03:20:10 UTC
+updated: 2012-10-07 03:20:10 UTC
+comments: false
+categories: linux
+---
+Pada tutorial kali ini saya ingin membahas tentang <b>cara upgrade mozilla firefox di ubuntu</b>. Sebenarnya ada banyak cara yang bisa dilakukan untuk meng-upgrade browser bawaan Ubuntu ini, di antaranya : dengan cara <a href="https://help.ubuntu.com/community/FirefoxNewVersion">menambahkan daftar PPA di Synaptic</a>, <a href="http://waroeng-ubuntu.blogspot.com/2010/01/upgrade-firefox-36-menggunakan.html">menggunakan aplikasi Ubuntuzilla</a>, dan dengan mengupgrade dari source kode nya secara langsung. Kali ini saya ingin menggunakan cara yang ketiga, karena cara ini menurut saya lebih praktis dari cara yang lainnya, walaupun bukan cara yang termudah :D.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<img border="0" height="128" src="http://bolang123.files.wordpress.com/2010/02/1266377831_firefox20old20school20final.png?w=128" width="128" /></div>
+<br />
+Oh iya, cara ini saya dapatkan dari blognya mas <a href="http://akbarprivate.wordpress.com/2009/12/06/upgrade-firefox-ubuntu-9-04">Akbar Private</a>. Oke langsung saja, berikut langkah-langkahnya :<br />
+<a name='more'></a><br />
+<ol>
+<li>Pastikan komputer Anda terkoneksi dengan internet, karena kita akan mendownload beberapa paket yang diperlukan.<br />
+<br />
+</li>
+<li>Pertama download terlebih dahulu versi terbaru dari firefox <a href="http://www.mozilla.com/en-US/">di sini</a>. Ekstensinya berupa <b>*.tar.bz2</b>. Letakkan file hasil download tersebut, misalnya di <b>Desktop</b>.<br />
+<br />
+</li>
+<li>Masuk ke direktori kerja (direktori yang sama dengan letak firefox hasil download).<br />
+<span style="font-family: 'Courier New';">$ cd Desktop</span><br />
+<br />
+</li>
+<li>Pastikan browser Firefox Anda tidak sedang berjalan saat instalasi ini. Lalu, hapus terlebih dahulu Firefox yang lama.<br />
+<span style="font-family: 'Courier New';">$ sudo apt-get remove firefox-3.xx</span><br />
+<b>xx</b> tergantung versi mozilla firefox yang terdapat di Ubuntu Anda.<br />
+<br />
+</li>
+<li>Extrack file firefox hasil download ke /opt , masuk ke folder /opt , pindahkan isi /opt/firefox/plugins ke /opt/firefox/plugins.backup.<br />
+<span style="font-family: 'Courier New';">$ sudo tar -jxvf firefox-3.xx.tar.bz2 -C /opt<br />
+$ cd /opt<br />
+$ sudo mv /opt/firefox/plugins/ /opt/firefox/plugins.backup</span><br />
+<br />
+</li>
+<li>Buat link symbol untuk firefox.<br />
+<span style="font-family: 'Courier New';">$ sudo ln -s /usr/lib/xulrunner-addons/plugins/ /opt/firefox/plugins</span><br />
+<br />
+</li>
+<li>Sedikit edit shortcut yang lama, untuk menjalankan firefox yang baru, lalu membuat link symbol untuk firefox yang baru.<br />
+<span style="font-family: 'Courier New';">$ sudo dpkg-divert --divert /usr/bin/firefox.ubuntu --rename /usr/bin/firefox<br />
+$ sudo ln -s /opt/firefox/firefox /usr/bin/firefox</span><br />
+<br />
+</li>
+<li>Sampai di sini proses telah selesai, buka firefox baru Anda.<br />
+<span style="font-family: 'Courier New';">$ sudo firefox</span><br />
+</li>
+</ol>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2010/02/deerpark-icon.png?w=128" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://bolang123.files.wordpress.com/2010/02/deerpark-icon.png?w=128" /></a></div>
+<div style="text-align: center;">
+<i>Namoroka Web Browser</i></div>
+Catatan :<br />
+Setelah instalasi selesai, kemungkinan <b>icon shortcut firefox Anda akan berubah</b>, contohnya saat instalasi ini saya memakai Firefox 3.6 yang shortcut icon-nya berubah menjadi <b>Namoroka Web Browser</b> (codename firefox 3.6). Jadi jangan bingung :D.<br />
+Oke, selamat mencoba dan semoga bermanfaat :).

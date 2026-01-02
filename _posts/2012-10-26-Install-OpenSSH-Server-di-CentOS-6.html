@@ -1,0 +1,33 @@
+---           
+layout: post
+title: Install OpenSSH Server di CentOS 6
+date: 2012-10-26 02:58:51 UTC
+updated: 2012-10-26 02:58:51 UTC
+comments: false
+categories: linux networking
+---
+OpenSSH (<em>OpenBSD Secure Shell</em>) adalah sebuah aplikasi yang digunakan untuk berkomunikasi secara secure di dalam jaringan komputer menggunakan protokol SSH. SSH sangat populer di pengguna Linux dan Unix varian lainnya. SSH adalah protokol utama yang digunakan untuk <em>remote shell</em>, sistem administrasi, pertukaran data, sinkronisasi dan <em>secure tunnel</em>.
+<br />
+<a name='more'></a>SSH sebenarnya didesain untuk menggantikan Telnet (di port standar 23 TCP) yang dalam operasinya mengirimkan informasi dalam bentuk teks biasa tanpa enkripsi atau pengacakan. Sementara SSH dengan port standar 22 TCP, menyediakan enkripsi sebagai standar komunikasinya.
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<div style="margin-left: 1em; margin-right: 1em;">
+<img alt="openssh" height="191" src="http://upload.wikimedia.org/wikipedia/en/6/65/OpenSSH_logo.png" title="Logo OpenSSH" width="194" /></div></div>
+Berikut cara instalasi OpenSSH Server di CentOS 6 :
+Buka Terminal, masukkan perintah berikut :<br />
+<blockquote>
+$ sudo yum install openssh-server</blockquote>
+Untuk menjalankan openssh-server masukkan perintah berikut :
+<br />
+<blockquote>
+$ sudo service sshd start</blockquote>
+Kemudian konfigurasikan firewall di CentOS melalui menu <em>System</em> &gt; <em>Administration</em> &gt; <em>Firewall</em> untuk membuka port 22 (SSH) agar dapat diakses dari luar.
+
+Dari komputer lain kita dapat mengakses komputer remote yang telah diinstalasi OpenSSH Server ini melalui sintaks berikut di Terminal :
+<br />
+<blockquote>
+$ ssh username@host</blockquote>
+Misalnya :
+<br />
+<blockquote>
+$ ssh afriandi@192.168.1.100</blockquote>

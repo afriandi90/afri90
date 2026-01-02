@@ -1,0 +1,34 @@
+---           
+layout: post
+title: Berinternet Bersih &amp; Aman dengan DNS Nawala
+date: 2012-10-26 02:58:51 UTC
+updated: 2012-10-26 02:58:51 UTC
+comments: false
+categories: internet networking
+---
+Sebelumnya saya jelaskan terlebih dahulu tentang <strong>DNS</strong>. DNS (<strong><em>Domain Name System</em></strong>) dalam bahasa Indonesia berarti <strong>Sistem Penamaan Domain </strong>adalah sebuah sistem yang menyimpan informasi tentang nama <em>host</em> ataupun nama domain dalam bentuk basis data yang tersebar di dalam jaringan komputer. DNS menyediakan alamat IP untuk setiap nama host dan domain. (<em>Wikipedia</em>)<br />
+<a name='more'></a><br />
+<img alt="Ilustrasi DNS" class="centered" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjqghVLVjJpZ1DmA3VxOifZTXektqYLlWZX3omrXXL856euvPwUbhMEr4VYiRcOUIAi8U-36Q4hBrILIY6FKI_zKxUUXosET2HrFQ7FhuvVFM7h8n7UKfsfO8_pQr3aeg0-OTSJHh76hY/" /><br />
+<br />
+Mudahnya begini, saat kita membuka suatu halaman web semisal <u>www.google.com</u>, sebenarnya browser tidak mengerti dengan alamat yang kita ketikkan, browser menanyakan alamat ini kepada <em>DNS Server</em> yang memiliki alamat IP google, setelah itu <em>DNS Server</em> memberikan alamat IP google kepada browser dan akhirnya browser dapat memperoleh halaman web google.<br />
+<br />
+Bagaimana kalau seandainya kita sudah mengetahui alamat IP google? Ya, browser dapat langsung memperoleh halaman web google tanpa harus bertanya lagi kepada <em>DNS Server</em>.<br />
+<br />
+<h3>DNS Nawala</h3><br />
+<br />
+Apa itu DNS Nawala? <strong>DNS Nawala</strong> adalah sebuah <em>DNS Server</em> buatan Indonesia yang dapat digunakan untuk menyaring situs-situs negatif yang bisa merusak, seperti situs pornografi, malware, judi, <em>proxy</em>, dan situs yang mengandung SARA. Jika seandainya ada seorang klien yang membuka salah satu situs di atas di dalam komputer yang memakai DNS Nawala, maka DNS Nawala langsung membloknya sehingga halaman web yang diminta tidak bisa diperolehnya.<br />
+<br />
+Berikut ini dua buah DNS Server Nawala yang bisa Anda gunakan :<br />
+<blockquote>* NS #1: 180.131.144.144<br />
+* NS #2: 180.131.145.145</blockquote><br />
+Cara menggunakan DNS Nawala di Ubuntu :<br />
+<ul><li>Klik kanan pada icon Network Connection yang ada di panel sebelah atas, lalu klik <strong>Edit Connections</strong>.<br />
+</li>
+<li>Pilih koneksi internet yang Anda gunakan, jika menggunakan <strong>LAN</strong> edit koneksi yang ada di tab <strong>Wired</strong>, jika menggunakan <strong>Wi-Fi</strong> edit koneksi yang ada di tab <strong>Wireless</strong>, jika menggunakan modem <strong>3G/CDMA</strong> edit koneksi yang ada di tab <strong>Mobile Broadband</strong>.<br />
+<img alt="Edit Connection" class="centered" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyfRp1Td79gbCObeW7Gbeou6DJX7zoAypqQgpa6LBNYfONVJ87b33wBF3NPLCRTSmmsNDULAmrLThkdiAXHQeZ-lhyAznPDMbMic-EbFQjFE_0UE4uOuhdATiibkR4utM6_ZfCHYIB00Y/" /><br />
+</li>
+<li>Setelah window <strong>Editing Connection</strong> terbuka, buka tab <strong>IPv4 Settings</strong>. Pada kolom <strong>Method</strong> pilih <strong>Automatic (...) addresses only</strong>.<br />
+<img alt="Edit Connection 1" class="centered" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1-nuJanb-0_RRpwZgte90YVpwyYDmJMNFpfoLep6xSIU097pHphd3IDhxEu-Kf2UJO4NEO1Ly_filZsU79ihAT0ERaae0IO-leobXTNXOLANK1F72gri6Kxg37SAFrdFsjaCLQ57ZeLU/" /><br />
+</li>
+<li>Isikan kolom <strong>DNS servers</strong> dengan DNS Server Nawala yang ada di atas, lalu klik <strong>Apply</strong>.</li>
+</ul>

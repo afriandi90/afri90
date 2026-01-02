@@ -1,0 +1,21 @@
+---           
+layout: post
+title: Menjalankan SQL Query di phpMyAdmin
+date: 2012-10-07 03:10:52 UTC
+updated: 2012-10-07 03:10:52 UTC
+comments: false
+categories: programming
+---
+Salah satu database software yang umum digunakan untuk mengelola suatu web database adalah <strong>phpMyAdmin</strong>. Untuk membuat dan mengelola tabel di phpMyAdmin sebenarnya kita sudah diberi kemudahan dengan cara memilih dan mengklik menu-menu yang ada. Tapi bagi Anda yang ingin belajar mengenai <strong>SQL Query</strong> seperti <strong>DDL</strong> (<em>Data Definition Language</em>) dan <strong>DML</strong> (<em>Data Manipulation Language</em>) untuk mengelola tabel secara manual, Anda juga bisa menggunakan phpMyAdmin. Berikut caranya :<br />
+<a name='more'></a><br />
+<ol><br />
+<li>Bagi Anda yang menggunakan XAMPP misalnya, buka phpMyAdmin di URL <strong>http://localhost/phpmyadmin/</strong>, atau jika Anda menggunakan cPanel buka phpMyAdmin di kolom <strong>Databases</strong> &gt; <strong>phpMyAdmin</strong>.</li>
+<br />
+<li>Buat database baru di kolom <strong>Create new database</strong>, misal dengan nama <strong>example</strong>, lalu klik Create.<br /><img alt="create database" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT7lEaECIXfCIoS2A6sotSMGHbT3qTRzYRJB_2USUIH5QRPZOkWAtJxqDYmFxLMdWQt8Q8sgxH0yUTzW5WoovZT3MyCNsOhsWl2mevW7577x-t7bktVV_zP5PPzahg1I0jUfId6M9d6rw/" /></li>
+<br />
+<li>Kemudian pada sidebar klik icon <strong>Query window</strong> (icon kedua dari sebelah kiri), maka window baru akan muncul.<br /><img alt="icon sidebar" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNPCxFyJaVzUD_RipHjXv8VOqbzZnkNphJONXVtjvGDYAqnPB0DTnQCWQZpNGv38Xd1Yaqrhc_KZenS0ANyYZ9rkoxShieMiuN-Ic8mgjmql4jG25o-cfiGFhbxUsuTzwolE78JO9D6Jc/" /></li>
+<br />
+<li>Pada window baru tersebut ketikkan saja SQL Query yang diinginkan, sebagai contoh di sini saya membuat sebuah tabel dengan nama <strong>mahasiswa</strong> dengan 4 buah <em>field</em>, yakni npm, nama, kelas, dan ipk dengan <em>field</em> npm sebagai <strong>Primary Key</strong>-nya. Jika sudah, klik <strong>Go</strong>.<br /><img alt="sql query" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrF3BdRghLTfhHxxjhDrJydFs0yC7U8AHcsxcAN4wI4TdBjx-Vkw9Fj6iHUBOeiw0YYK8p1x272NP1M5grzeLv08P6hXF9UFm5UhuDf-bAZBH4ER1CD4mzj3IDekdz5IBu25FHJZUjnAQ/" /></li>
+<br />
+<li>Jika Query yang dimasukkan sudah benar maka akan muncul notifikasi <em>Your SQL query has been executed successfully</em>.</li>
+</ol>

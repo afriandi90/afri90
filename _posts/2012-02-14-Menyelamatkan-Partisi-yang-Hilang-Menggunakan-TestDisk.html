@@ -1,0 +1,20 @@
+---           
+layout: post
+title: Menyelamatkan Partisi yang Hilang Menggunakan TestDisk
+date: 2012-02-14 06:52:04 UTC
+updated: 2012-02-14 06:52:04 UTC
+comments: false
+categories: linux
+---
+Pernahkah Anda mengalami kehilangan sebuah partisi Harddisk? <strong>Hilang</strong>nya <strong>partisi Harddisk</strong> ini biasanya terjadi karena <em>Partition Table</em> yang terhapus, akibatnya partisi Harddisk Anda menjadi <strong>RAW</strong>. Isi dari partisi Harddisk RAW ini sebenarnya masih ada, namun karena <em>Partition Table</em> nya hilang maka Harddisk tidak dapat dibuka.<br />
+<a name='more'></a><br />
+<br />
+Baru saja saya mencoba menginstall OpenSUSE di harddisk eksternal saya, setelah saya yakin konfigurasi partisi harddisk untuk menginstall OpenSUSE sudah benar, langsung saja saya memulai instalasi. Seharusnya semua berjalan lancar, karena sebelumnya saya mencoba install Ubuntu dengan konfigurasi partisi yang sama dan berhasil. Konfigurasinya kurang lebih seperti berikut :<br />
+<blockquote>/dev/sdb &nbsp; &nbsp; &nbsp;extended &nbsp; boot&nbsp; &nbsp; &nbsp;250GB<br />
+/dev/sdb1 &nbsp; &nbsp; &nbsp; ntfs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;230GB<br />
+/dev/sdb2 &nbsp; &nbsp; &nbsp; ext4 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; &nbsp; &nbsp; &nbsp; 20GB</blockquote>Konfigurasi di atas hanya ilustrasi, harddisk saya partisi menjadi 2, pada partisi kedua (<strong>/dev/sdb2</strong>) saya letakkan <strong>/</strong> (root) dari Linux nya, dan pada MBR Harddisk (<strong>/dev/sdb</strong>) saya letakkan <em>grub-loader</em> nya. Sebelumnya konfigurasi seperti ini berhasil saat saya install Ubuntu, namun setelah saya install OpenSUSE partisi <strong>/dev/sdb1</strong> berubah menjadi RAW, sehingga tidak dapat dibuka.<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://www.cgsecurity.org/wiki/TestDisk" style="margin-left: 1em; margin-right: 1em;"><img alt="TestDisk" height="100" src="http://www.cgsecurity.org/mw/images/Testdisklogo_clear_100.png" title="Logo TestDisk" width="100" /></a></div><br />
+<br />
+Tapi akhirnya partisi tersebut bisa saya selamatkan dan dapat dibuka kembali setelah saya mencoba menggunakan software yang bernama <strong><a href="http://www.cgsecurity.org/wiki/TestDisk">TestDisk</a></strong>. <strong>Software ini free dan berlisensi GPL v2+</strong>, enaknya lagi software ini tersedia untuk Linux, Windows, dan Mac OS. Untuk mendownload TestDisk silahkan merujuk ke halaman berikut :<br />
+<blockquote><a href="http://www.cgsecurity.org/wiki/TestDisk_Download">Download TestDisk</a></blockquote>Cara penggunaan TestDisk tidak terlalu sulit walaupun antar mukanya masih menggunakan Terminal/CMD jika di Windows. Tinggal ikuti <em>step by step</em> nya dari awal hingga akhir seperti yang terdapat di halaman berikut :<br />
+<blockquote><a href="http://www.cgsecurity.org/wiki/TestDisk_Step_By_Step">TestDisk Step by Step</a></blockquote>Untuk lamanya proses <em>recovery</em> tergantung dari ukuran harddisk Anda, untuk merecovery 250GB software ini membutuhkan waktu sekitar 1 jam lebih.

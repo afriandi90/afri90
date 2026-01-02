@@ -1,0 +1,27 @@
+---           
+layout: post
+title: Alternatif Cara Membuat Memori Swap di Linux
+date: 2012-10-07 03:18:03 UTC
+updated: 2012-10-07 03:18:03 UTC
+comments: false
+categories: linux
+---
+Sama halnya seperti Ms Windows, <b>Linux</b> pun memerlukan <b>memori virtual</b> untuk mendukung jalannya sistem operasi. Akan tetapi penggunaan memori virtual di Linux sedikit berbeda dengan di Ms Windows, kalau di Ms Windows memori virtual ini tercipta secara otomatis saat kita menginstal Windows, memorinya pun tercipta di dalam suatu file yang biasa disebut <b>Page File</b> yang letaknya satu partisi dengan Windows. Sedangkan kalau di Linux kita harus membuatnya sendiri di dalam partisi yang terpisah yang biasa disebut <b>partisi Swap</b>, dan biasanya pembuatan partisi ini bersamaan dengan saat kita menginstal sistem operasi Linux.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://bolang123.files.wordpress.com/2009/12/memory20mapping.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://bolang123.files.wordpress.com/2009/12/memory20mapping.jpg?w=260" width="277" /></a></div>
+<br />
+<br />
+Ada yang bilang kalau <b>partisi Swap tidak terlalu penting</b> untuk dibuat karena saat ini spesifikasi komputer sudah sangat besar, misalnya saja RAM yang berkapasitas 8GB pun saat ini harganya sudah sangat murah, jadi tidak perlu lagi membuat memori virtual karena hanya akan membuang-buang isi harddisk saja. Kalau menurut saya pendapat ini tak sepenuhnya benar karena <b>memori virtual peranannya sangat penting</b> tidak hanya untuk mendukung performa sistem operasi saja, memori virtual juga digunakan oleh semua aplikasi/software yang terinstal di sistem operasi Anda.<br />
+<br />
+Tapi bagaimana jika Anda <b>terlanjur menginstal Linux dalam komputer Anda dan Anda lupa/tidak mau membuat partisi Swap</b> karena alasan tertentu? Misalnya saja karena<b> ruang harddisk yang tidak memungkinkan</b>, <b>kondisi harddisk yang tidak memungkinkan lagi untuk membuat partisi baru</b>, atau <b>segan untuk membuat partisi baru karena takut data Anda yang ada di dalam harddisk Anda hilang </b>saat pembuatan partisi Swap<b> </b>seperti saya ini.<br />
+<br />
+Ada sebuah <b>cara alternatif</b> yakni dengan cara membuat <b>Swap File</b> di dalam partisi <i>root</i> Anda. OK, ikuti langkah-langkah di bawah ini :<br />
+<br />
+<ol>
+<li>Buka <i>Terminal</i> dan login sebagai <i>root</i>.<br /></li>
+<li>Ketik perintah berikut ini untuk membuat file sebesar 1GB.<br /><b><span style="font-family: Courier New;"># dd if=/dev/zero of=/swapfile bs=1M count=1000</span></b><br />Ini artinya ukuran blok (block size) sebesar 1MB, jadi count 1000 berarti membuat file sebesar 1000x1MB yakni 1GB.<br /></li>
+<li>Men-set-up file tersebut agar menjadi sebuah swap file.<br /><b><span style="font-family: Courier New;"># mkswap /swapfile</span></b><br /></li>
+<li>Mengaktifkan swap file.<br /><b><span style="font-family: Courier New;"># swapon /swapfile</span></b><br /></li>
+<li>Agar swap file dapat aktif setiap Linux direboot, tambahkan sebuah entry ke file /etc/fstab.<br /><b><span style="font-family: Courier New;"># gedit /etc/fstab</span></b><br />Tambahkan parameter di bawah ini ke dalam file /etc/fstab.<br /><b><span style="font-family: Courier New;">/swapfile swap swap defaults 0 0</span></b><br />Jadi setiap Linux reboot, swap file dapat aktif secara otomatis.<br /></li>
+<li>Bagaimana cara memverifikasi bahwa <b>Swap</b> aktif atau tidak?<br />Caranya jalankan perintah berikut :<br /><b><span style="font-family: Courier New;">$ free -m</span></b></li>
+</ol>

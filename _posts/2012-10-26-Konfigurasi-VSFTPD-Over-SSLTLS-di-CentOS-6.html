@@ -1,0 +1,36 @@
+---           
+layout: post
+title: Konfigurasi VSFTPD Over SSL/TLS di CentOS 6
+date: 2012-10-26 02:58:51 UTC
+updated: 2012-10-26 02:58:51 UTC
+comments: false
+categories: linux networking
+---
+Konfigurasi VSFTPD over SSL/TLS ini dipakai supaya client dapat mengakses FTP Server di CentOS 6 menggunakan protokol FTPS dan FTPES yang terkenal lebih aman daripada protokol FTP biasa maupun SFTP (SSH FTP). Berikut cara konfigurasi VSFTPD Over SSL/TLS di CentOS 6.
+<br />
+<a name='more'></a>Buka Terminal, masukkan perintah berikut :
+<br />
+<blockquote>
+$ cd /etc/vsftpd/</blockquote>
+Masukkan perintah berikut untuk membuat <em>self-signed certificate</em> :
+<br />
+<blockquote>
+$ sudo /usr/bin/openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout vsftpd.pem -out vsftpd.pem</blockquote>
+Kemudian masukkan informasi yang diperlukan seperti <em>country name</em>, <em>province name</em>, email, dsb.
+Buka file konfigurasi vsftpd :
+<br />
+<blockquote>
+$ sudo gedit /etc/vsftpd/vsftpd.conf</blockquote>
+Tambahkan parameter berikut di akhir baris :
+<br />
+<blockquote>
+ssl_enable=YES<br />
+allow_anon_ssl=YES<br />
+force_local_data_ssl=YES<br />
+force_local_logins_ssl=YES<br />
+ssl_tlsv1=YES<br />
+ssl_sslv2=NO<br />
+ssl_sslv3=NO<br />
+rsa_cert_file=/etc/vsftpd/vsftpd.pem<br />
+require_ssl_reuse=NO</blockquote>
+Kemudian konfigurasikan firewall di CentOS melalui menu <em>System</em> &gt; <em>Administration</em> &gt; <em>Firewall</em> untuk membuka port 990 (FTPS) agar dapat diakses dari luar.

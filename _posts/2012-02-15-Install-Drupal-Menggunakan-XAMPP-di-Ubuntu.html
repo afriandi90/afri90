@@ -1,0 +1,78 @@
+---           
+layout: post
+title: Install Drupal Menggunakan XAMPP di Ubuntu
+date: 2012-02-15 10:37:02 UTC
+updated: 2012-02-15 10:37:02 UTC
+comments: false
+categories: linux
+---
+Pada tutorial kali ini saya ingin menjelaskan tentang <a href="http://www.afriandi.web.id/2010/07/install-drupal-menggunakan-xampp-di.html"><strong>cara install Drupal menggunakan XAMPP di Ubuntu</strong></a>. <em>XAMPP</em> merupakan sebuah program <em>web server</em> yang sudah  sangat lengkap karena dalam sekali install kita bisa mendapatkan sebuah <strong>Apache</strong> Server, <strong>MySQL</strong> Database, dan tentu saja <strong>PHP</strong>. Dengan adanya <em>XAMPP</em> kita tidak perlu lagi repot-repot meng-<em>install</em> komponen  tersebut satu-persatu. Karena menurut pengalaman teman saya jika ingin  meng-<em>install</em> satu-persatu maka akan sangat menyulitkan saat  mengkonfigurasi komponen-komponen tersebut. Baiklah, berikut ini akan  saya jelaskan tutorialnya secara mendetail :<br />
+<br />
+<strong>Langkah 1</strong><br />
+<em>Download XAMPP dan Drupal.</em><br />
+Download file yang diperlukan terlebih dahulu yakni <strong><a href="http://www.apachefriends.org/en/xampp-linux.html" rel="nofollow" target="_blank">XAMPP</a></strong> dan<strong> <a href="http://drupal.org/project/drupal" rel="nofollow" target="_blank">Drupal</a></strong>. Pastikan Anda mendownload versi stabil yang terbaru.<br />
+<a name='more'></a><br />
+<br />
+<strong>Langkah 2</strong><br />
+<em>Menginstal XAMPP.</em><br />
+Setelah selesai men-download file yang diperlukan, sekarang kita instal <em>XAMPP </em>terlebih dahulu. Pastikan file hasil download tadi satu folder  dengan direktori kerja Anda.<br />
+<ol><li>Misalkan Anda simpan file tadi di <em>Desktop</em>, maka jalankan  perintah berikut di terminal. (<em>login</em> terlebih dahulu sebagai <em>root</em>) :<br />
+<span style="font-family: 'Courier New';"># cd Desktop</span></li>
+<li>Ekstrak XAMPP ke direktori /opt :<br />
+<span style="font-family: 'Courier New';"># tar xvfz  xampp-linux-1.7.2.tar.gz -C /opt</span></li>
+<li>Kemudian jalankan XAMPP dengan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># /opt/lampp/lampp start</span></li>
+<li>Test apakah XAMPP sudah dapat bekerja.<br />
+Buka browser Mozilla Firefox Anda, dan ketikkan :<br />
+<span style="font-family: 'Courier New';">http://localhost</span></li>
+<li>Untuk menghentikan XAMPP gunakan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># /opt/lampp/lampp stop</span></li>
+</ol><br />
+<strong>Langkah 3</strong><br />
+<em>Mengekstrak Drupal.</em><br />
+<ol><li>Ekstrak Drupal ke direktori <strong>opt/lampp/htdocs</strong>:<br />
+<span style="font-family: 'Courier New';"># tar xvfz drupal-6.17.tar.gz -C /opt/lampp/htdocs<br />
+</span></li>
+<li>Rename nama folder "drupal-6.17" menjadi "drupal":<br />
+<span style="font-family: 'Courier New';"># mv /opt/lampp/htdocs/drupal-6.17 /opt/lampp/htdocs/drupal</span></li>
+</ol><br />
+<strong>Langkah 4</strong><br />
+<em>Menge-test Drupal</em><br />
+<ol><li>Sekarang saatnya menge-<em>test</em> di komputer Anda. Buka browser Mozilla Firefox Anda, kemudian ketikkan :<br />
+<span style="font-family: 'Courier New';">http://localhost/drupal/</span></li>
+</ol><br />
+<strong>Langkah 5</strong><br />
+<em>Membuat Database</em><br />
+<ol><li>Buka tab baru di Mozilla Firefox Anda, kemudian ketikkan :<br />
+<span style="font-family: 'Courier New';">http://localhost/phpmyadmin/</span></li>
+<li>Pada text box <strong>Create new database</strong>, ketikkan nama database yang diinginkan, misal "drupal".</li>
+</ol><br />
+<strong>Langkah 6</strong><br />
+<em>Meng-install Drupal</em><br />
+<ol><li>Kembali ke tab sebelumnya di Mozilla Firefox Anda, kemudian klik link <strong>Install Drupal in English</strong>. Maka akan muncul halaman <strong>Requirements problem</strong>.</li>
+<li>Buat salinan dari file <strong>default.settings.php</strong> dan rename ke <strong>settings.php</strong>. Kembali ke Terminal dan ketikkan perintah berikut :<br />
+<span style="font-family: 'Courier New';"># cp /opt/lampp/htdocs/drupal/sites/default/default.settings.php /opt/lampp/htdocs/drupal/sites/default/settings.php</span></li>
+<li>Berikutnya kita perlu memberikan <em>permission</em> ke file <strong>settings.php</strong> agar menjadi <em>writable</em>:<br />
+<span style="font-family: 'Courier New';"># cd /opt/lampp/htdocs/drupal/sites<br />
+# chmod a+w default<br />
+# chmod a+w default/settings.php</span></li>
+<li>Terakhir kita perlu menambahkan <em>PHP memory limit</em> dari 8M ke 16M:<br />
+<span style="font-family: 'Courier New';"># gedit /opt/lampp/etc/php.ini</span><br />
+Tekan <em>Ctrl + F</em>, kemudian cari tulisan <strong>memory_limit</strong> dan ganti angkanya dari 8 ke 16.</li>
+<li>Kemudian <em>restart</em> XAMPP :<br />
+<span style="font-family: 'Courier New';"># /opt/lampp/lampp stop<br />
+# /opt/lampp/lampp start</span></li>
+<li>Kembali ke browser, kemudian klik link <strong>try again</strong> di tulisan paling bawah. Sekarang seharusnya Anda sudah bisa melihat halaman <strong>Database configuration</strong> di browser Anda.<br />
+Masukkan nama database yang sebelumnya telah Anda buat, untuk database <em>username</em> isikan saja dengan "root", lalu klik <strong>Save and continue</strong>.<br />
+Lalu Anda akan didirect ke halaman <strong>Configure site</strong>.</li>
+<li>Untuk tujuan keamanan, maka diberitahukan bahwa Anda harus menghapus <em>permission</em> <em>writable</em> di file <strong>settings.php</strong>:<br />
+<span style="font-family: 'Courier New';"># chmod a-w /opt/lampp/htdocs/drupal/sites/default/settings.php</span></li>
+<li>Terakhir, masukkan informasi yang dibutuhkan, seperti <strong>Site information</strong>, dan <strong>Administration account</strong>. Jika sudah, klik <strong>Save and continue</strong> button.</li>
+</ol><br />
+<strong>Langkah 7</strong><br />
+<em>Menggunakan Drupal.</em><br />
+<ol><li>Untuk mulai menggunakan Drupal, masuk ke halaman <strong>Admin</strong> :<br />
+<span style="font-family: 'Courier New';">http://localhost/drupal/admin</span></li>
+<li>Kemudian masukkan <em>username</em> dan <em>password</em> Anda, lalu klik <strong>Log in</strong>.</li>
+</ol><br />
+Baca juga: tutorial cara <a href="http://www.afriandi.web.id/2010/02/install-joomla-menggunakan-xampp-di.html">install Joomla menggunakan XAMPP di Ubuntu</a>.
