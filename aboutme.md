@@ -1,16 +1,14 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Just About Me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Perkenalkan, nama saya Afriandi Riaharyanto, seorang pria kelahiran tahun 1990 yang berdomisili di kota Bekasi, Jawa Barat. Saat ini saya adalah seorang mahasiswa di sebuah Universitas swasta di Indonesia, Universitas Gunadarma. Di Universitas ini saya mengambil jurusan Sistem Komputer yang sebenarnya diperuntukkan bagi pelajar yang ingin memperdalam pengetahuannya mengenai hardware/perangkat keras komputer. Namun saya sebenarnya juga sangat tertarik untuk mempelajari Linux, terutama Ubuntu dan segala sesuatu yang berhubungan dengan Web dan blogging.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+Anda bisa mengkontak saya via :
 
-What else do you need?
+    E-mail : [afriandi[dot]diru[at]gmail.com]
+    Facebook : afriandi.bolang
+    Twitter : @afriandi_diru
 
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
